@@ -1,5 +1,6 @@
 # Hexapod Robot
-This six-legged robot has the capability to perform a variety of tasks, including [FILLOUTLATER}. 
+The Hexapod Robot is a six-legged creature similar in dexterity to that of an insect. Modeled after the elegance of a spider's design, this hexapod is capable of ambulation, rotation, and expressive gestures, while also performing various functions. Controlled by an Arduino UNO board, this creation is highly versatile, having the potential to be programmed by the user's free will.  
+
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
