@@ -46,10 +46,14 @@ For your second milestone, explain what you've worked on since your previous mil
 ### Description
 My primary project milestone was the hardware and construction of the robot. With 18 nano servos, each operating one of three joints on one of the six legs, the assembly proved to be an extremely tedious process, involving a plethora of screws and accurate placement. During this process, I accomplished the following:
 1. Assembled the joints for each leg
-2. Wired servo
-3. Fixed the servos into their respective brackets
-4. Installed the WLAN board to control the robot via Wi-Fi
-5. 
+2. Wired servos to the underside of the board (containing the pins for ground, power and servo)
+3. Cable management (18 servos result in a lot of cables!)
+4. Fixed the servos into their respective brackets
+5. Installed the WNIC (Wireless Network Interface Card) to Arduino MEGA to potentially control the robot via Wi-Fi hotspot
+6. Installed the Wireless Module to Arduino MEGA (Another will be connected to a programmed controller) to control the robot directly via the controller
+
+### Specifications:
+The robot is controlled by the Freenove Crawling Robot Controller, recognized as an Arduino MEGA. The controller itself is 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
