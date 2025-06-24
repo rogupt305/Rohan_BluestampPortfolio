@@ -29,6 +29,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 
 # Second Milestone
+##CODING & MOVEMENT CALIBRATION
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -41,6 +42,7 @@ For your second milestone, explain what you've worked on since your previous mil
 - What needs to be completed before your final milestone -->
 
 # First Milestone
+##HARDWARE & CONSTRUCTION
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
