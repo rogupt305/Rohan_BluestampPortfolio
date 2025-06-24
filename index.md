@@ -29,7 +29,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 
 # Second Milestone
-##CODING & MOVEMENT CALIBRATION
+## CODING & MOVEMENT CALIBRATION
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -42,7 +42,14 @@ For your second milestone, explain what you've worked on since your previous mil
 - What needs to be completed before your final milestone -->
 
 # First Milestone
-##HARDWARE & CONSTRUCTION
+## HARDWARE & CONSTRUCTION
+### Description
+My primary project milestone was the hardware and construction of the robot. With 18 nano servos, each operating one of three joints on one of the six legs, the assembly proved to be an extremely tedious process, involving a plethora of screws and accurate placement. During this process, I accomplished the following:
+1. Assembled the joints for each leg
+2. Wired servo
+3. Fixed the servos into their respective brackets
+4. Installed the WLAN board to control the robot via Wi-Fi
+5. 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
