@@ -30,6 +30,8 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 # Second Milestone
 ## CODING & MOVEMENT CALIBRATION
+### Description
+My secondary project milestone was the coding and movement calibration. This process involved a lot of troubleshooting, but not in the way one might expect. The code for the robot was already pre-written at this stage, and the main challenge was to work around a few bugs in the UI that some of the code coded for. This UI was on the computer screen, and was utilized 
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
