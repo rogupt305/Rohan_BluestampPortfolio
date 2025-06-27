@@ -10,6 +10,13 @@ You should comment out all portions of your portfolio that you have not complete
 |:--:|:--:|:--:|:--:|
 | Rohan G | Leland High School | Electrical Engineering | Incoming Sophomore
 
+## PROJECT SPECIFICATIONS
+Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
+Controller: Recognized as an Arduino Uno. 
+Servos: 18 count, MG90S 9g servos, 
+Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
+Power Source (Controller): 9V Alkaline Battery
+
 <!---**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg) -->
@@ -30,8 +37,16 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 # Second Milestone
 ## CODING & MOVEMENT CALIBRATION
+### Background Information
+The hexapod robot's main code was prewritten, and simply needed to be uploaded to the computer. In addition to the code, the developers of the robot designed an additional software that could be run on the computer. This software was fully equipped to connect to the robot, control it, and calibrate the standard position of it's six legs. However, the software's UI was poorly designed, and it took a lot of troubleshooting to make the software perform it's intended functions. 
+
 ### Description
-My secondary project milestone was the coding and movement calibration. This process involved a lot of troubleshooting, but not in the way one might expect. The code for the robot was already pre-written at this stage, and the main challenge was to work around a few bugs in the UI that some of the code coded for. This UI was on the computer screen, and was utilized 
+In this milestone, I accomplished the following:
+1. Downloaded the Processing and Arduino app
+2. Installed the necessary drivers (some of them were pre-installed, some of them were available to install on the Arduino IDE app and some were given to me by the robot developers)
+3. Uploaded the code to the remote and to the robot control board
+4. Fixed a significant issue with the Wireless Modules on the controller and the robot control board (this is how they communicate with each other). The Modules were not connecting with each other
+5. Calibrated the robot's 
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -58,13 +73,6 @@ My primary project milestone was the hardware and construction of the robot. Wit
 ### Challenges:
 As mentioned earlier, the assembly, specifically the screws, was a time-consuming process. This was partly due to the screws' small size and extremely tight fit, which made them difficult to properly screw into the acrylic plates. However, this resulted in a far more sturdy and rigid frame, and one that was able to efficiently encase the control board and other electronic parts. 
 With that being said, however, it was extremely challenging to manage the mess of cables from the servos, due to the robot's compact nature. Furthermore, the sharp, angular shape of the plate encasing the board resulted in a few exposed copper wires, as the servo cables scraped against it frequently. In the end, I resorted to smoothening out the edges by applying layers of electric tape, as well as lightly zip-tying around the mass of cables. 
-
-### Specifications / Parts Used for Milestone:
-Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
-Controller: Recognized as an Arduino Uno. 
-Servos: 18 count, MG90S 9g servos, 
-Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
-Power Source (Controller): 9V Alkaline Battery
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
