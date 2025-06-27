@@ -45,8 +45,13 @@ In this milestone, I accomplished the following:
 1. Downloaded the Processing and Arduino app
 2. Installed the necessary drivers (some of them were pre-installed, some of them were available to install on the Arduino IDE app and some were given to me by the robot developers)
 3. Uploaded the code to the remote and to the robot control board
-4. Fixed a significant issue with the Wireless Modules on the controller and the robot control board (this is how they communicate with each other). The Modules were not connecting with each other
-5. Calibrated the robot's 
+4. Fixed a significant issue with the Wireless Modules on the controller and the robot control board (this is how they communicate with each other) - the Modules were not connecting with each other prior to this tweak
+5. Calibrated the robot's legs to a standard position (the position of the servos deviated from their standard position during assembly, this is to recorrect that)
+6. Mounted the battery on the bottom of the robot, recalibrated the legs to accomodate
+7. Polished off the looks and movement of the robot
+
+### Challenges
+As mentioned earlier, utilizing the poorly designed UI proved to be an existential challenge to overcome when calibrating the robot's legs. When altering their position in the three dimensional (x, y, z) plane, altering one of these variables moved the robot's leg through a 2-d plane, in comparison to a one dimensional line. Furthermore, different controls did this unpredictably, making it extremely time-consuming to get the robot's leg in the correct place. In the end, I had to resort to manually removing the servos and reattaching them at a different angle, which slightly displaced their range of motion. Luckily, this did not cause significant change to the robot's final movement. 
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
