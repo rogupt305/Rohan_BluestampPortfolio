@@ -38,6 +38,8 @@ In this milestone, I added fully-functioning claws to my project. To successfull
   static const byte orderOpen = 67;
   static const byte orderClose = 72;
   static const byte orderStop = 79;
+```
+
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
