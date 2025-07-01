@@ -23,6 +23,22 @@ Power Source (Controller): 9V Alkaline Battery
   
 # Final Milestone
 
+# Third Milestone
+## CUSTOM CLAWS AND CODE REFINEMENTS
+
+### How the code works
+A crucial modification that had to be executed before I could design the claw regarded the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and defined directly to an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
+However, for a person with little experience in the domain of software prior to this, I found myself consulting an instructor numerous times.
+Here's what I managed to do:
+I went into the "Orders" section of the code, and established my own custom orders, setting them equal to distinct numbers:
+
+### Accomplishments
+In this milestone, I added fully-functioning claws to my project. To successfully accomplish this, I had to modify the code to include two additonal servos:
+```C++
+  static const byte orderOpen = 67;
+  static const byte orderClose = 72;
+  static const byte orderStop = 79;
+
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -40,7 +56,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 ### Background Information
 The hexapod robot's main code was prewritten, and simply needed to be uploaded to the computer. In addition to the code, the developers of the robot designed an additional software that could be run on the computer. This software was fully equipped to connect to the robot, control it, and calibrate the standard position of it's six legs. However, the software's UI was poorly designed, and it took a lot of troubleshooting to make the software perform it's intended functions. 
 
-### Description
+### Accomplishments
 In this milestone, I accomplished the following:
 1. Downloaded the Processing and Arduino app
 2. Installed the necessary drivers (some of them were pre-installed, some of them were available to install on the Arduino IDE app and some were given to me by the robot developers)
@@ -65,7 +81,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 ## HARDWARE & CONSTRUCTION
-### Description
+### Accomplishments
 My primary project milestone was the hardware and construction of the robot. With 18 small servos, each operating one of three joints on one of the six legs, the assembly proved to be an extremely tedious process, involving a plethora of screws and accurate attachment of servos. During this process, I accomplished the following:
 1. Assembled the joints for each leg
 2. Connected each leg to the control board's encasement plate (which served as the main chassis)
