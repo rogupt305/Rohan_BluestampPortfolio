@@ -30,10 +30,9 @@ Power Source (Controller): 9V Alkaline Battery
 A crucial modification that had to be executed before I could design the claw regarded the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and defined directly to an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
 However, for a person with little experience in the domain of software prior to this, I found myself consulting an instructor numerous times.
 Here's what I managed to do:
-I went into the "Orders" section of the code, and established my own custom orders, setting them equal to distinct numbers:
 
-### Accomplishments
-In this milestone, I added fully-functioning claws to my project. To successfully accomplish this, I had to modify the code to include two additonal servos:
+
+I went into the "Orders" section of the code, and established my own custom orders, setting them equal to distinct numbers:
 ```C++
   static const byte orderOpen = 67;
   static const byte orderClose = 72;
