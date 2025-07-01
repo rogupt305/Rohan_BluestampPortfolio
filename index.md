@@ -45,7 +45,62 @@ After wiring the Nano to the MEGA, a simple line in the Communications section o
 Communication::Start - Wire.begin()
 ```
 
-Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them.
+Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them.(NOTE: I have included comments in the code detaling what each section does)
+```C++
+#include <Servo.h>
+#include <Wire.h>
+
+Servo servoL{};
+Servo servoR{};
+
+//ORDERS - From robot controller to Nano
+static const byte orderOpen = 67;
+static const byte orderClose = 72;
+static const byte orderStop = 79;
+byte orderCheck = orderStop;
+
+//SETUP: Essentially setting up the wire comms., a few test runs, and specific pins where servos are attached to. 
+void setup()
+{
+  servoL.attach(10);
+  servoR.attach(9);
+  servoL.write(100);//test
+  servoR.write(100);//test
+  Wire.begin(92);
+  Wire.onReceive(cmd_ON);
+  Serial.begin(9600);
+};
+
+//CHECKS: The following lines are designed to pinpoint which command is being sent to the Arduino, and what to do for each command
+void loop()
+{
+  delay(42);
+
+  if(orderCheck == orderOpen)
+  {
+    servoL.write(servoL.read() + 1);
+    servoR.write(servoR.read() + 1);
+  }
+
+  if(orderCheck == orderClose)
+  {
+    servoL.write(servoL.read() - 1);
+    servoR.write(servoR.read() - 1);
+  }
+
+  if(orderCheck == orderStop)
+  {
+    servoL.write(servoL.read()); //technically no need to write, but this keeps servo in same pos.
+    servoR.write(servoR.read()); //read prev. line
+  }
+};
+
+void cmd_ON() //runs only when recieved cmd from board (custom function name)
+{
+  orderCheck = Wire.read(); 
+  Serial.println("Recieved Data");
+}
+```
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
