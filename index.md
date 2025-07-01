@@ -39,6 +39,13 @@ I went into the "Orders" section of the code, and established my own custom orde
   static const byte orderStop = 79;
 ```
 
+Following this, I had to incorporate an Arduino Nano board into my setup, due to having no extra space to add servos on the robot control board (Arduino MEGA). From this point, the first main hurdle was getting the Arduino MEGA to communicate with the Arduino Nano. 
+After wiring the Nano to the MEGA, a simple line in the Communications section of the code got it to work:
+```C++
+Communication::Start - Wire.begin()
+```
+
+Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them.
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
