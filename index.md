@@ -27,7 +27,7 @@ Power Source (Controller): 9V Alkaline Battery
 ## CUSTOM CLAWS AND CODE REFINEMENTS
 
 ### How the code works
-A crucial modification that had to be executed before I could design the claw regarded the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and defined directly to an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
+A crucial modification that had to be done before I could design the claw was with the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and correlated directly with an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
 However, for a person with little experience in the domain of software prior to this, I found myself consulting an instructor numerous times.
 Here's what I managed to do:
 
@@ -39,7 +39,7 @@ I went into the "Orders" section of the code, and established my own custom orde
   static const byte orderStop = 79;
 ```
 
-Following this, I had to incorporate an Arduino Nano board into my setup, due to having no extra space to add servos on the robot control board (Arduino MEGA). From this point, the first main hurdle was getting the Arduino MEGA to communicate with the Arduino Nano. 
+Following this, I had to incorporate an Arduino Nano board into my setup, due to having no extra space to add servos on the robot control board (Arduino MEGA). From this point onwards, the first main hurdle was getting the Arduino MEGA to communicate with the Arduino Nano. 
 After wiring the Nano to the MEGA, a simple line in the Communications section of the code got it to work:
 ```C++
 Communication::Start - Wire.begin()
@@ -161,9 +161,18 @@ I deleted the previous code, then wrote the following in the Remote tab of the A
 With that, the software for my first modification was working. 
 
 ### Using Fusion 360 (CAD) to digitally model my project
-Filler, filler filler filler filler filler.
-<!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+I split up the claw design into three main sections - a mount, two "supporters", and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
 
+******* DELETE THIS AFTER: Reminder to include the images, and also the final design. :DELETE THIS AFTER *******
+
+To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed a rough draft of the mount, shown below. 
+
+IMAGE HERE
+
+The main idea was that the mount would be attached to the acrylic plate--
+
+
+<!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
