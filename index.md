@@ -137,6 +137,31 @@ else if (blockedOrder == Orders::orderOpen)
     Serial.println("Send Stopped Message");
   }
 ```
+
+From here, the final step was to figure out which input terminal on the controller would be used to control the servos, and code for that. I decided to go with the two potentiometers, labeled as "pot1" and "pot2" in the code. I chose them because their original function, to raise the height of the body, didn't seem very relevant to me. Furthermore, they didn't even lift the body, indicating an error in the code.
+I deleted the previous code, then wrote the following in the Remote tab of the Arduino UNO Controller:
+```C++
+/* The potentiometer goes from 0-1024, depending on how far open it is.
+   I decided to go with 1/3 of this amount, meaning that the potentiometer
+   needs to be intentionally moved a distance to work. This accounts for accidental movements.*/
+
+ if(pot1Value >= 341) 
+  {
+    rf24OutData[rf24OutDataCounter++] = Orders::orderOpen;
+  }
+  else if(pot2Value >= 341) //else if makes it either/or, so that only one command is sent
+  {
+    rf24OutData[rf24OutDataCounter++] = Orders::orderClose;
+  }
+  else //if the potentiators are "off", stop sending orders
+  {
+    rf24OutData[rf24OutDataCounter++] = Orders::orderStop;
+  }
+```
+With that, the software for my first modification was working. 
+
+### Using Fusion 360 (CAD) to digitally model my project
+Filler, filler filler filler filler filler.
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
