@@ -102,6 +102,41 @@ void cmd_ON() //runs only when recieved cmd from board (custom function name)
 }
 ```
 
+With that successfully out of the way, the next step was to calibrate the Arduino MEGA to be able to talk to the Arduino Nano, by writing a few extra lines of code in the Communications tab. (Comments are added in necessary locations).
+```C++
+//From a chain of previous "if" statements, three else ifs for each command
+
+else if (blockedOrder == Orders::orderOpen)
+  {
+    Wire.beginTransmission(92); //begin transmission to arduino nano
+    Wire.write(Orders::orderOpen); //carry out the process
+    Wire.endTransmission();
+    //TESTING
+    Serial.println("Send Open Message"); //This line of code sends a message in the Serial Monitor on the Arduino App. Now unused, this helped ensure that the commands were running, to troubleshoot when the servos did not move as expected
+  }
+
+//The following lines operate in the same way
+
+  else if(blockedOrder == Orders::orderClose)
+  {
+    Wire.beginTransmission(92); 
+    Wire.write(Orders::orderClose); 
+    int code = Wire.endTransmission();
+    if((code) != 0)
+    {
+      Serial.println(code);
+    }
+    Serial.println("Send Closed Message");
+  }
+
+  else if(blockedOrder == Orders::orderStop)
+  {
+    Wire.beginTransmission(92); //begin transmission to arduino nano
+    Wire.write(Orders::orderStop); //carry out the process
+    Wire.endTransmission();
+    Serial.println("Send Stopped Message");
+  }
+```
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
