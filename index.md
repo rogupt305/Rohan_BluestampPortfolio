@@ -161,7 +161,7 @@ I deleted the previous code, then wrote the following in the Remote tab of the A
 With that, the software for my first modification was working. 
 
 ### Using Fusion 360 (CAD) to digitally model my project
-I split up the claw design into three main sections - a mount, two "supporters", and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
+I split up the claw design into three main sections - a mount, two supporting arms, and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
 
 ******* DELETE THIS AFTER: Reminder to include the images, and also the final design. :DELETE THIS AFTER *******
 
@@ -169,7 +169,11 @@ To start, I took necessary measurements of the acrylic plate on which the mount 
 
 IMAGE HERE
 
-The main idea was that the mount would be attached to the acrylic plate--
+The main idea was that the mount would be attached to the acrylic plate. Directly attached to the mount, the supporting arms would also be attached to a servo each, which would vertically move the scoopers. I had to split up the entire project into three parts, since the angular shapes and attention to detail would have been extremely difficult to reproduce on a 3-D printer. 
+
+MOUNT:
+This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
+Below are images of two iterations of the mount. I struggled a lot with getting the clip-like structure at the end to have the proper dimensions, since it ---
 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
