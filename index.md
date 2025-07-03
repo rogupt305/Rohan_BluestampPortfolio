@@ -4,7 +4,7 @@ In the following lines, I have provided an in-depth explanation on how each and 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Rohan G | Leland High School | Electrical Engineering | Incoming Sophomore
+| Rohan G | Leland High School | Mechanical Engineering | Incoming Sophomore
 
 ## PROJECT SPECIFICATIONS
 1. Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
