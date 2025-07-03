@@ -47,6 +47,7 @@ Wire.begin(); //set up background, introduce/ensure that wires are properly set 
 ```
 
 Here's how the Arduino Nano was wired:
+
 <img src="https://i.postimg.cc/dVGzpQsM/arduino-nano-connection.jpg" alt="My iPhone photo" width="400">
 
 Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. I created a new Arduino.ide file, then I wrote and uploaded the following code to the Arduino NANO. (NOTE: I have included comments in the code detaling what each section does)
@@ -176,6 +177,7 @@ The main idea was that the mount would be attached to the acrylic plate. Directl
 MOUNT:
 This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
 To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed and printed two iterations of the mount, as shown below:
+
 <img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
 
 As depicted, I incorporated a clip-like structure to make the mount easy to take off and reattach. This was because the USB port of the Arduino MEGA was directly in the way of the mount. 
@@ -217,6 +219,7 @@ The reason for this is because when calibrating the robot using the UI App, the 
 As mentioned earlier, utilizing the poorly designed UI proved to be an existential challenge to overcome when calibrating the robot's legs. When altering their position in the three dimensional (x, y, z) plane, altering one of these variables moved the robot's leg through a 2-d plane, instead of the ideal one dimensional line. Furthermore, different controls did this unpredictably, making it extremely time-consuming to get the robot's leg in the correct place. In the end, I had to resort to manually removing the servos and reattaching them at a different angle, which slightly displaced their range of motion. Luckily, this did not cause significant change to the robot's final movement. 
 
 The robot sitting on the calibration mat:
+
 <img src="https://i.postimg.cc/fbG5NmBB/calibrate.jpg" alt="My iPhone photo" width="400">
 
 ### Next Steps:
@@ -250,6 +253,7 @@ As mentioned earlier, the assembly, specifically the screws, was a time-consumin
 With that being said, however, it was extremely challenging to manage the mess of cables from the servos, due to the robot's compact nature. Furthermore, the sharp, angular shape of the plate encasing the board resulted in a few exposed copper wires, as the servo cables scraped against it frequently. In the end, I resorted to smoothening out the edges by applying layers of electric tape, as well as lightly zip-tying around the mass of cables. 
 
 Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of exposed wires:
+
 <img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
 
 ### Next Steps:
@@ -283,10 +287,12 @@ After this milestone, I got ready to work on my main project.
 <!---Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. -->
 Milestone 1 & 2: Servos to Arduino Mega. The servos are connected from pins 22-39. 
 NOTE: The actual Freenove board is merely "recognized" as Arduino Mega. In reality, the board does not look like this. Ensure that the VCC and GND wires are properly connected in their color-coded pins. 
+
 <img src="https://i.postimg.cc/76VRjKxt/Screenshot-2025-07-03-141546.png" alt="My iPhone photo" width="400">
 
 Milestone 3: Connection between Arduino MEGA and Arduino Nano. 
 Once again, note that the Arduino MEGA board is not the same as the actual control board, but the Arduino Nano is. However, pay close attention to the numbers and characters next to each used pin on the Arduino MEGA, as they are identical to that on the control board.
+
 <img src="https://i.postimg.cc/pTsBv737/Screenshot-2025-07-03-143919.png" alt="My iPhone photo" width="400">
 
 # Bill of Materials
