@@ -50,7 +50,8 @@ Here's how the Arduino Nano was wired:
 <img src="https://i.postimg.cc/dVGzpQsM/arduino-nano-connection.jpg" alt="My iPhone photo" width="400">
 
 Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. I created a new Arduino.ide file, then I wrote and uploaded the following code to the Arduino NANO. (NOTE: I have included comments in the code detaling what each section does)
-```C++ LINES: 1 - 52
+LINES: 1 - 52
+```C++
 #include <Servo.h>
 #include <Wire.h>
 
