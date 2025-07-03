@@ -244,6 +244,9 @@ With that being said, however, it was extremely challenging to manage the mess o
 Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of exposed wires:
 <img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
 
+### Next Steps:
+After this milestone, I worked on the code for the robot, and its calibration. 
+
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -263,6 +266,9 @@ The main idea behind the creation follows a simple series circuit, with no progr
 
 ### Challenges:
 While constructing this project, I ran into one main challenge - due to the board's highly compact design, it was difficult to solder the wires without accidentally creating a connection between two of them, which could cause a short circuit. I ran into this issue a few times. To resolve the problem, I simply re-heated the solder with a hot iron, and then meticulously guided the solder back into place. 
+
+### Next Steps:
+After this milestone, I got ready to work on my main project. 
 
 
 # Schematics 
