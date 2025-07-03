@@ -9,7 +9,7 @@ In the following lines, I have provided an in-depth explanation on how each and 
 ## PROJECT SPECIFICATIONS
 1. Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
 2. Controller: Recognized as an Arduino Uno. 
-3. Servos: 18 count, MG90S 9g servos
+3. Servos (motors): 18 count, MG90S 9g servos, rotating 180° DC motor
 4. Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
 5. Power Source (Controller): 9V Alkaline Battery
 6. Servo Driver: Arduino Nano
