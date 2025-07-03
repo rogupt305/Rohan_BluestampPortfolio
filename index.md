@@ -1,4 +1,4 @@
-# Hexapod Robot
+# Hexapod Robot 🤖
 The Hexapod Robot is a six-legged creature similar in dexterity to that of an insect. Modeled after the unusual nature of a crab's design, this hexapod is capable of ambulation, rotation, physical interaction with it's environment, and expressive guestures, while simultaneously performing other varying functions. Controlled by an Arduino MEGA board, this creation is highly versatile, having the potential to be programmed and utilized by the user's free will.  
 In the following lines, I have provided an in-depth explanation on how each and every component of this robot was manufactured, designed, and coded. 
 
@@ -6,13 +6,27 @@ In the following lines, I have provided an in-depth explanation on how each and 
 |:--:|:--:|:--:|:--:|
 | Rohan G | Leland High School | Mechanical Engineering | Incoming Sophomore
 
-## PROJECT SPECIFICATIONS
+## PROJECT SPECIFICATIONS 📄
 1. Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
 2. Controller: Recognized as an Arduino Uno. 
 3. Servos (motors): 18 count, MG90S 9g servos, rotating 180° DC motor
 4. Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
 5. Power Source (Controller): 9V Alkaline Battery
 6. Servo Driver: Arduino Nano
+7. Bluetooth Reciever (One on the controller and one on the robot control board)
+8. WLAN module: Controls the robot via Wi-Fi, usually from a computer or phone
+
+# HOW PARTS WORK:
+Servos: The servos I mentioned are micro servo motors, weighing around 9 grams each. They rotate up to 180 degrees, in a discontinuous motion. To control them, PWM (pulse-width modulation) signals are sent from the Arduino. 
+A 1 millisecond pulse makes the servos turn to around 0 degrees. 
+A 1.5 millisecond pulse makes them move to 90 degrees.
+A 2 millisecond pulse turns it to around 180 degrees. 
+These signals are usually sent around every 20 milliseconds, to keep the servo at the desired angle. 
+Inside each MSG90S servo is a small DC motor for rotation, a set of gears to reduce speed and increase torque, a potentiometer to detect the current angle, and a control circuit to move the motor to achieve the desired angle. 
+
+Bluetooth Modules: These are small, wireless devices that enable the robot and controller talk to each other. These modules send a stream of numbers, each linked to an order (See Milestone 3: How the code works) every time an input is detected on the controller. These modules work using short-range radio waves, of up to 10 meters, and are relatively easy to use with Arduino. 
+
+WLAN Module (Wi-Fi Control): Similar to the bluetooth module. This module enables a Wi-Fi network called "Hexapod Robot", which is then available for connection to a device. Being more versatile, this module can be programmed to send data to and from the robot and the device (for example, the robot can be programmed to send sensor readings or status updates back). The Wi-Fi is more helpful for longer-range control than Bluetooth, especially if they are on the same home network. 
 
 
 <!---**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
@@ -23,7 +37,7 @@ In the following lines, I have provided an in-depth explanation on how each and 
 
 *** WORK IN PROGRESS ***
 
-# Third Milestone
+# Third Milestone 💻🗜️
 ## CUSTOM CLAWS AND CODE REFINEMENTS
 
 ### How the code works
@@ -196,7 +210,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 -->
 
 
-# Second Milestone
+# Second Milestone 🖥️
 ## CODING & MOVEMENT CALIBRATION
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/D_x8IfXiv48" title="Rohan G. Milestone 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -233,7 +247,7 @@ For your second milestone, explain what you've worked on since your previous mil
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone -->
 
-# First Milestone
+# First Milestone 🔧
 ## HARDWARE & CONSTRUCTION
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L9QgHenpvF0" title="Rohan G. Milestone 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
