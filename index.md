@@ -213,6 +213,9 @@ As mentioned earlier, utilizing the poorly designed UI proved to be an existenti
 
 The robot sitting on the calibration mat:
 <img src="https://i.postimg.cc/fbG5NmBB/calibrate.jpg" alt="My iPhone photo" width="400">
+
+### Next Steps:
+After this milestone, I worked on the software and hardware part for my first modification - adding claws.
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 
