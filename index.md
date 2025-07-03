@@ -45,6 +45,9 @@ After wiring the Nano to the MEGA, a simple line in the Communications section o
 Communication::Start - Wire.begin()
 ```
 
+Here's how the Arduino Nano was wired:
+<img src="https://i.postimg.cc/dVGzpQsM/arduino-nano-connection.jpg" alt="My iPhone photo" width="400">
+
 Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. (NOTE: I have included comments in the code detaling what each section does)
 ```C++
 #include <Servo.h>
