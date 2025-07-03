@@ -165,18 +165,17 @@ With that, the software for my first modification was working.
 
 ### Using Fusion 360 (CAD) to digitally model my project
 I split up the claw design into three main sections - a mount, two supporting arms, and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
+The main idea was that the mount would be attached to the acrylic plate. Directly attached to the mount, the supporting arms would also be attached to a servo each, which would vertically move the scoopers. I had to split up the entire project into three parts, since the angular shapes and attention to detail would have been extremely difficult to reproduce on a 3-D printer if the parts were not printed individually.
 
-******* DELETE THIS AFTER: Reminder to include the images, and also the final design. :DELETE THIS AFTER *******
-
-To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed a rough draft of the mount, shown below. 
-
-IMAGE HERE
-
-The main idea was that the mount would be attached to the acrylic plate. Directly attached to the mount, the supporting arms would also be attached to a servo each, which would vertically move the scoopers. I had to split up the entire project into three parts, since the angular shapes and attention to detail would have been extremely difficult to reproduce on a 3-D printer. 
+******* DELETE THIS AFTER: Reminder to include the images of the final design. :DELETE THIS AFTER *******
 
 MOUNT:
 This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
-Below are images of two iterations of the mount. I struggled a lot with getting the clip-like structure at the end to have the proper dimensions, since it ---
+To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed and printed two iterations of the mount, as shown below:
+<img src="https://i.postimg.cc/3xYbR2Hw/my-photo.jpg" alt="My iPhone photo" width="400">
+
+As depicted, I incorporated a clip-like structure to make the mount easy to take off and reattach. This was because the USB port of the Arduino MEGA was directly in the way of the mount. 
+Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it to bend, but not so thin that it breaks off.
 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -211,6 +210,8 @@ Before calibrating the robot, I realized that I had completely miswired the serv
 The reason for this is because when calibrating the robot using the UI App, the app has pre-set locations for each servo on the pinout. If the servo is not plugged into the correct pin, the robot will wrongly move the servo. 
 As mentioned earlier, utilizing the poorly designed UI proved to be an existential challenge to overcome when calibrating the robot's legs. When altering their position in the three dimensional (x, y, z) plane, altering one of these variables moved the robot's leg through a 2-d plane, in comparison to a one dimensional line. Furthermore, different controls did this unpredictably, making it extremely time-consuming to get the robot's leg in the correct place. In the end, I had to resort to manually removing the servos and reattaching them at a different angle, which slightly displaced their range of motion. Luckily, this did not cause significant change to the robot's final movement. 
 
+The robot sitting on the calibration mat:
+<img src="https://i.postimg.cc/fbG5NmBB/calibrate.jpg" alt="My iPhone photo" width="400">
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 
@@ -238,6 +239,9 @@ My primary project milestone was the hardware and construction of the robot. Wit
 ### Challenges:
 As mentioned earlier, the assembly, specifically the screws, was a time-consuming process. This was partly due to the screws' small size and extremely tight fit, which made them difficult to properly screw into the acrylic plates. However, this resulted in a far more sturdy and rigid frame, and one that was able to efficiently encase the control board and other electronic parts. 
 With that being said, however, it was extremely challenging to manage the mess of cables from the servos, due to the robot's compact nature. Furthermore, the sharp, angular shape of the plate encasing the board resulted in a few exposed copper wires, as the servo cables scraped against it frequently. In the end, I resorted to smoothening out the edges by applying layers of electric tape, as well as lightly zip-tying around the mass of cables. 
+
+Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of stripped wires:
+<img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
