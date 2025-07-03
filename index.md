@@ -144,7 +144,7 @@ else if (blockedOrder == Orders::orderOpen)
   }
 ```
 
-From here, the final step was to figure out which input terminal on the controller would be used to control the servos, and code for that. I decided to go with the two potentiometers, labeled as "pot1" and "pot2" in the code. I chose them because their original function, to raise the height of the body, didn't seem very relevant to me. Furthermore, they didn't even lift the body, indicating an error in the code.
+From here, the final step was to figure out which input terminal on the controller would be used to control the servos, and code for that. I decided to go with the two potentiometers, labeled as "pot1" and "pot2" in the code. I chose them because their original function, to raise the height of the body, didn't seem very relevant to me. Furthermore, turning them on didn't even lift the body, indicating an error in the code.
 I deleted the previous code, then wrote the following in the Remote ("FNHRremote.cpp") tab of the Arduino UNO Controller: 
 LINES: 138 - 152
 ```C++
