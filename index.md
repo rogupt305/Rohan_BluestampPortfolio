@@ -172,10 +172,11 @@ The main idea was that the mount would be attached to the acrylic plate. Directl
 MOUNT:
 This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
 To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed and printed two iterations of the mount, as shown below:
-<img src="https://i.postimg.cc/3xYbR2Hw/my-photo.jpg" alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
 
 As depicted, I incorporated a clip-like structure to make the mount easy to take off and reattach. This was because the USB port of the Arduino MEGA was directly in the way of the mount. 
 Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it to bend, but not so thin that it breaks off.
+Furthermore, since this was a prototype, I made sure to create gaps in the design, removing filament where it was not needed in order to conserve it.
 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
