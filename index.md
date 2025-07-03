@@ -241,7 +241,7 @@ My primary project milestone was the hardware and construction of the robot. Wit
 As mentioned earlier, the assembly, specifically the screws, was a time-consuming process. This was partly due to the screws' small size and extremely tight fit, which made them difficult to properly screw into the acrylic plates. However, this resulted in a far more sturdy and rigid frame, and one that was able to efficiently encase the control board and other electronic parts. 
 With that being said, however, it was extremely challenging to manage the mess of cables from the servos, due to the robot's compact nature. Furthermore, the sharp, angular shape of the plate encasing the board resulted in a few exposed copper wires, as the servo cables scraped against it frequently. In the end, I resorted to smoothening out the edges by applying layers of electric tape, as well as lightly zip-tying around the mass of cables. 
 
-Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of stripped wires:
+Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of exposed wires:
 <img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
