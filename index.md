@@ -301,6 +301,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Freenove Hexapod Robot Kit (FNK0031) | Kit containing parts, servos, robot & controller | $126.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://store.freenove.com/products/fnk0031)"> Link </a> |
 | Arduino Nano | Used as a servo driver | $24.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/Arduino-A000005-ARDUINO-Nano/dp/B0097AU5OU/ref=sr_1_2?dib=eyJ2IjoiMSJ9.UR9t6Z2D5rIVJlr8NPSrk8lsooCrlbXp6PW8NiTHZI1w37ejl4nxF76g50XESv8CvSdeUNV8zFUxEFJnO0XoENPKswfnoc1nYWOzeyCu6o8iyy5vysywuz_CieTA3pa8_88EENz_kXVRjiFUxu2d7ch2FQM_N7aJ38K1Zolt7wA9tvVmW8FOsUWHl6bmxlTPdYmCZjAOrZe_qcgNd0gOxHIP-F1m5sVU9OxnuI5BzQ8.d1XvuVapqP2lwlKgqOHKYPuD-qcKNjp3wiklwwTU32U&dib_tag=se&keywords=arduino+nano&qid=1751580964&sr=8-2)"> Link </a> |
 
+NOTE: The two extra servos that I used for the claw were included in the kit. 
 
 # Other Resources/Examples
 <!--One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
