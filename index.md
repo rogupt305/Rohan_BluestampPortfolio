@@ -279,11 +279,11 @@ After this milestone, I got ready to work on my main project.
 <!---Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. -->
 Milestone 1 & 2: Servos to Arduino Mega. The servos are connected from pins 22-39. 
 NOTE: The actual Freenove board is merely "recognized" as Arduino Mega. In reality, the board does not look like this. Ensure that the VCC and GND wires are properly connected in their color-coded pins. 
-<img src="[https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/76VRjKxt/Screenshot-2025-07-03-141546.png" alt="My iPhone photo" width="400">
 
 Milestone 3: Connection between Arduino MEGA and Arduino Nano. 
 Once again, note that the Arduino MEGA board is not the same as the actual control board, but the Arduino Nano is. However, pay close attention to the numbers and characters next to each used pin on the Arduino MEGA, as they are identical to that on the control board.
-<img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/pTsBv737/Screenshot-2025-07-03-143919.png" alt="My iPhone photo" width="400">
 
 # Bill of Materials
 <!--Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
