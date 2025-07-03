@@ -33,7 +33,8 @@ Here's what I managed to do:
 
 NOTE: To view where the modified code fits into the main picture, check out the Code Appendix at the bottom.
 
-I went into the "Orders" section of the code, and established my own custom orders, setting them equal to distinct numbers:
+I went into the "Orders.cpp" section of the MEGA's code, and established my own custom orders, setting them equal to distinct numbers: 
+LINES: 75 - 77
 ```C++
   static const byte orderOpen = 67;
   static const byte orderClose = 72;
@@ -41,16 +42,17 @@ I went into the "Orders" section of the code, and established my own custom orde
 ```
 
 Following this, I had to incorporate an Arduino Nano board into my setup, due to having no extra space to add servos on the robot control board (Arduino MEGA). From this point onwards, the first main hurdle was getting the Arduino MEGA to communicate with the Arduino Nano. 
-After wiring the Nano to the MEGA, a simple line in the Communications section of the code got it to work:
+After wiring the Nano to the MEGA, a simple line in the Communications (Comm.cpp) section of the MEGA code got it to work: 
+LINE: 31
 ```C++
-Communication::Start - Wire.begin()
+Wire.begin(); //set up background, introduce/ensure that wires are properly set up in SDA and SCL pins
 ```
 
 Here's how the Arduino Nano was wired:
 <img src="https://i.postimg.cc/dVGzpQsM/arduino-nano-connection.jpg" alt="My iPhone photo" width="400">
 
-Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. (NOTE: I have included comments in the code detaling what each section does)
-```C++
+Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. I created a new Arduino.ide file, then I wrote and uploaded the following code to the Arduino NANO. (NOTE: I have included comments in the code detaling what each section does)
+```C++ LINES: 1 - 52
 #include <Servo.h>
 #include <Wire.h>
 
@@ -106,7 +108,8 @@ void cmd_ON() //runs only when recieved cmd from board (custom function name)
 }
 ```
 
-With that successfully out of the way, the next step was to calibrate the Arduino MEGA to be able to talk to the Arduino Nano, by writing a few extra lines of code in the Communications tab. (Comments are added in necessary locations).
+With that successfully out of the way, the next step was to calibrate the Arduino MEGA to be able to talk to the Arduino Nano, by writing a few extra lines of code in the Communications (Comm.cpp) tab on the MEGA. (Comments are added in necessary locations). 
+LINES: 534 - 560
 ```C++
 //From a chain of previous "if" statements, three else ifs for each command
 
