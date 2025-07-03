@@ -1,6 +1,6 @@
 # Hexapod Robot
-The Hexapod Robot is a six-legged creature similar in dexterity to that of an insect. Modeled after the elegance of a spider's design, this hexapod is capable of ambulation, rotation, and expressive gestures, while also performing various functions. Controlled by an Arduino MEGA board, this creation is highly versatile, having the potential to be programmed by the user's free will.  
-
+The Hexapod Robot is a six-legged creature similar in dexterity to that of an insect. Modeled after the unusual nature of a crab's design, this hexapod is capable of ambulation, rotation, physical interaction with it's environment, and expressive guestures, while simultaneously performing other varying functions. Controlled by an Arduino MEGA board, this creation is highly versatile, having the potential to be programmed and utilized by the user's free will.  
+In the following lines, I have provided an in-depth explanation on how each and every component of this robot was manufactured, designed, and coded. 
 <!---Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
@@ -11,11 +11,13 @@ You should comment out all portions of your portfolio that you have not complete
 | Rohan G | Leland High School | Electrical Engineering | Incoming Sophomore
 
 ## PROJECT SPECIFICATIONS
-Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
-Controller: Recognized as an Arduino Uno. 
-Servos: 18 count, MG90S 9g servos, 
-Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
-Power Source (Controller): 9V Alkaline Battery
+1. Control Board: Freenove Crawling Robot Controller (recognized as an Arduino MEGA). 
+2. Controller: Recognized as an Arduino Uno. 
+3. Servos: 18 count, MG90S 9g servos
+4. Power Source (Robot): Tenergy NiMH 7.2V 3000mAh Battery Pack.
+5. Power Source (Controller): 9V Alkaline Battery
+6. Servo Driver: Arduino Nano
+
 
 <!---**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
@@ -23,17 +25,17 @@ Power Source (Controller): 9V Alkaline Battery
   
 # Final Milestone
 
+*** WORK IN PROGRESS ***
+
 # Third Milestone
 ## CUSTOM CLAWS AND CODE REFINEMENTS
 
 ### How the code works
-A crucial modification that had to be done before I could design the claw was with the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and correlated directly with an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
+A crucial modification that had to be done before I could design my first modification, a set of two claws, was with the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and correlated directly with an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
 However, for a person with little experience in the domain of software prior to this, I found myself consulting an instructor numerous times.
 Here's what I managed to do:
 
-NOTE: To view where the modified code fits into the main picture, check out the Code Appendix at the bottom.
-
-I went into the "Orders.cpp" section of the MEGA's code, and established my own custom orders, setting them equal to distinct numbers: 
+I went into the "FNHROrders.cpp" (FNHR simply stands for "Freenove Hexapod Robot") section of the MEGA's code, and established my own custom orders, setting them equal to distinct numbers: 
 LINES: 75 - 77
 ```C++
   static const byte orderOpen = 67;
@@ -42,7 +44,7 @@ LINES: 75 - 77
 ```
 
 Following this, I had to incorporate an Arduino Nano board into my setup, due to having no extra space to add servos on the robot control board (Arduino MEGA). From this point onwards, the first main hurdle was getting the Arduino MEGA to communicate with the Arduino Nano. 
-After wiring the Nano to the MEGA, a simple line in the Communications (Comm.cpp) section of the MEGA code got it to work: 
+After wiring the Nano to the MEGA, a simple line in the Communications (FNHRComm.cpp) section of the MEGA code got it to work: 
 LINE: 31
 ```C++
 Wire.begin(); //set up background, introduce/ensure that wires are properly set up in SDA and SCL pins
@@ -108,7 +110,7 @@ void cmd_ON() //runs only when recieved cmd from board (custom function name)
 }
 ```
 
-With that successfully out of the way, the next step was to calibrate the Arduino MEGA to be able to talk to the Arduino Nano, by writing a few extra lines of code in the Communications (Comm.cpp) tab on the MEGA. (Comments are added in necessary locations). 
+With that successfully out of the way, the next step was to calibrate the Arduino MEGA to be able to talk to the Arduino Nano, by writing a few extra lines of code in the Communications (FNHRComm.cpp) tab on the MEGA. (Comments are added in necessary locations). 
 LINES: 534 - 560
 ```C++
 //From a chain of previous "if" statements, three else ifs for each command
@@ -146,7 +148,8 @@ else if (blockedOrder == Orders::orderOpen)
 ```
 
 From here, the final step was to figure out which input terminal on the controller would be used to control the servos, and code for that. I decided to go with the two potentiometers, labeled as "pot1" and "pot2" in the code. I chose them because their original function, to raise the height of the body, didn't seem very relevant to me. Furthermore, they didn't even lift the body, indicating an error in the code.
-I deleted the previous code, then wrote the following in the Remote tab of the Arduino UNO Controller:
+I deleted the previous code, then wrote the following in the Remote ("FNHRremote.cpp") tab of the Arduino UNO Controller: 
+LINES: 138 - 152
 ```C++
 /* The potentiometer goes from 0-1024, depending on how far open it is.
    I decided to go with 1/3 of this amount, meaning that the potentiometer
@@ -171,7 +174,7 @@ With that, the software for my first modification was working.
 I split up the claw design into three main sections - a mount, two supporting arms, and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
 The main idea was that the mount would be attached to the acrylic plate. Directly attached to the mount, the supporting arms would also be attached to a servo each, which would vertically move the scoopers. I had to split up the entire project into three parts, since the angular shapes and attention to detail would have been extremely difficult to reproduce on a 3-D printer if the parts were not printed individually.
 
-******* DELETE THIS AFTER: Reminder to include the images of the final design. :DELETE THIS AFTER *******
+***** ADD IMAGE OF FINAL DESIGN *****
 
 MOUNT:
 This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
@@ -179,8 +182,10 @@ To start, I took necessary measurements of the acrylic plate on which the mount 
 <img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
 
 As depicted, I incorporated a clip-like structure to make the mount easy to take off and reattach. This was because the USB port of the Arduino MEGA was directly in the way of the mount. 
-Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it to bend, but not so thin that it breaks off.
+Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it's structure to bend, but not so thin that it breaks off. I went with ~0.75mm.
 Furthermore, since this was a prototype, I made sure to create gaps in the design, removing filament where it was not needed in order to conserve it.
+
+*** WORK IN PROGRESS ***
 
 
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -208,12 +213,11 @@ In this milestone, I accomplished the following:
 4. Fixed a significant issue with the Wireless Modules on the controller and the robot control board (this is how they communicate with each other) - the Modules were not connecting with each other, and I realized that it was due to interference between a different person's Module.
 5. Calibrated the robot's legs to a standard position (the position of the servos deviated from their standard position during assembly, this is to recorrect that)
 6. Mounted the battery on the bottom of the robot, recalibrated the legs to accomodate
-7. Polished off the looks and movement of the robot
 
 ### Challenges
 Before calibrating the robot, I realized that I had completely miswired the servo motors. This proved to be a huge setback, because I had to manually go back and re-wire every servo solely by trial and error. 
-The reason for this is because when calibrating the robot using the UI App, the app has pre-set locations for each servo on the pinout. If the servo is not plugged into the correct pin, the robot will wrongly move the servo. 
-As mentioned earlier, utilizing the poorly designed UI proved to be an existential challenge to overcome when calibrating the robot's legs. When altering their position in the three dimensional (x, y, z) plane, altering one of these variables moved the robot's leg through a 2-d plane, in comparison to a one dimensional line. Furthermore, different controls did this unpredictably, making it extremely time-consuming to get the robot's leg in the correct place. In the end, I had to resort to manually removing the servos and reattaching them at a different angle, which slightly displaced their range of motion. Luckily, this did not cause significant change to the robot's final movement. 
+The reason for this is because when calibrating the robot using the UI App, the app has pre-set locations for each servo on the pinout map. If the servo is not plugged into the correct pin, the robot will wrongly move the servo. 
+As mentioned earlier, utilizing the poorly designed UI proved to be an existential challenge to overcome when calibrating the robot's legs. When altering their position in the three dimensional (x, y, z) plane, altering one of these variables moved the robot's leg through a 2-d plane, instead of the ideal one dimensional line. Furthermore, different controls did this unpredictably, making it extremely time-consuming to get the robot's leg in the correct place. In the end, I had to resort to manually removing the servos and reattaching them at a different angle, which slightly displaced their range of motion. Luckily, this did not cause significant change to the robot's final movement. 
 
 The robot sitting on the calibration mat:
 <img src="https://i.postimg.cc/fbG5NmBB/calibrate.jpg" alt="My iPhone photo" width="400">
@@ -294,9 +298,9 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Freenove Hexapod Robot Kit (FNK0031) | Kit containing parts, servos, robot & controller | $126.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://store.freenove.com/products/fnk0031)"> Link </a> |
+| Arduino Nano | Used as a servo driver | $24.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/Arduino-A000005-ARDUINO-Nano/dp/B0097AU5OU/ref=sr_1_2?dib=eyJ2IjoiMSJ9.UR9t6Z2D5rIVJlr8NPSrk8lsooCrlbXp6PW8NiTHZI1w37ejl4nxF76g50XESv8CvSdeUNV8zFUxEFJnO0XoENPKswfnoc1nYWOzeyCu6o8iyy5vysywuz_CieTA3pa8_88EENz_kXVRjiFUxu2d7ch2FQM_N7aJ38K1Zolt7wA9tvVmW8FOsUWHl6bmxlTPdYmCZjAOrZe_qcgNd0gOxHIP-F1m5sVU9OxnuI5BzQ8.d1XvuVapqP2lwlKgqOHKYPuD-qcKNjp3wiklwwTU32U&dib_tag=se&keywords=arduino+nano&qid=1751580964&sr=8-2)"> Link </a> |
+
 
 # Other Resources/Examples
 <!--One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
