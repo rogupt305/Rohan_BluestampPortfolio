@@ -71,6 +71,8 @@ Here's how the Arduino Nano was wired:
 
 <img src="https://i.postimg.cc/dVGzpQsM/arduino-nano-connection.jpg" alt="My iPhone photo" width="400">
 
+FIGURE 1: Arduino Nano Wiring
+
 Following this, the Arduino Nano needed to be "informed" of the orders it was to execute, as well as how to efficiently execute them. I created a new Arduino.ide file, then I wrote and uploaded the following code to the Arduino NANO. (NOTE: I have included comments in the code detaling what each section does)
 LINES: 1 - 52
 ```C++
@@ -199,15 +201,21 @@ To start, I took necessary measurements of the acrylic plate on which the mount 
 
 <img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
 
+FIGURE 2: Mount Iterations
+
 As depicted, I incorporated a clip-like structure to make the mount easy to take off and reattach. This was because the USB port of the Arduino MEGA was directly in the way of the mount. 
 Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it's structure to bend, but not so thin that it breaks off. I went with ~0.75mm.
 Furthermore, since this was a prototype, I made sure to create gaps in the design, removing filament where it was not needed in order to conserve it.
 
 The next step was to create the claw arm. This step was relatively easy, and didn't involve many iterations due to a straightforward design. Depicted below is my final design:
-<img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/tJN7hvWs/Whats-App-Image-2025-07-16-at-09-25-35-5c1b6203.jpg" alt="My iPhone photo" width="400">
+
+FIGURE 3: Claw Arm Mount
 
 After printing one claw mount and two claw arms, I centered my servos and hot-glued the entire design:
-<img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/L4LP9NYK/Whats-App-Image-2025-07-16-at-09-28-10-b26f02ce.jpg alt="My iPhone photo" width="400">
+
+FIGURE 4: Final Design of the Claw
 
 Following this, I soldered all of my connections to the Adafruit PermaPro Pi Small-size Breadboard. This breadboard is perfect for this project due to it's small size, and power rails for ground and power. 
 
@@ -510,6 +518,8 @@ The robot sitting on the calibration mat:
 
 <img src="https://i.postimg.cc/fbG5NmBB/calibrate.jpg" alt="My iPhone photo" width="400">
 
+FIGURE 5: Robot Calibration
+
 ### Next Steps:
 After this milestone, I worked on the software and hardware part for my first modification - adding claws.
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -543,6 +553,8 @@ With that being said, however, it was extremely challenging to manage the mess o
 Below is an image of the cables. Applying the yellow electrical tape on the edges of the acrylic plate smoothened them out, reducing the risk of exposed wires:
 
 <img src="https://i.postimg.cc/mgrmNbPN/cables-more2.jpg" alt="My iPhone photo" width="400">
+
+FIGURE 6: Cable Management
 
 ### Next Steps:
 After this milestone, I worked on the code for the robot, and its calibration. 
