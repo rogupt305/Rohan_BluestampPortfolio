@@ -213,7 +213,7 @@ The next step was to create the claw arm. This step was relatively easy, and did
 FIGURE 3: Claw Arm Mount
 
 After printing one claw mount and two claw arms, I centered my servos and hot-glued the entire design:
-<img src="https://i.postimg.cc/L4LP9NYK/Whats-App-Image-2025-07-16-at-09-28-10-b26f02ce.jpg alt="My iPhone photo" width="400">
+<img src="https://i.postimg.cc/L4LP9NYK/Whats-App-Image-2025-07-16-at-09-28-10-b26f02ce.jpg" alt="My iPhone photo" width="400">
 
 FIGURE 4: Final Design of the Claw
 
