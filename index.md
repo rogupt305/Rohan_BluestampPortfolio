@@ -15,6 +15,13 @@ In the following lines, I have provided an in-depth explanation on how each and 
 6. Servo Driver: Arduino Nano
 7. Bluetooth Reciever (One on the controller and one on the robot control board)
 8. WLAN module: Controls the robot via Wi-Fi, usually from a computer or phone
+9. LED Lights: W2812 lights
+10. Ultrasonic Sensor: HC-SR04
+11. Breadboard: Adafruit PermaProto Pi Small-size Breadboard, ~46mm x ~57mm
+
+ARDUINO LIBRARIES:  
+LED Lights: FastLED
+Servos: Wire, Servo
 
 # HOW PARTS WORK:
 Servos: The servos I mentioned are micro servo motors, weighing around 9 grams each. They rotate up to 180 degrees, in a discontinuous motion. To control them, PWM (pulse-width modulation) signals are sent from the Arduino. 
@@ -38,7 +45,7 @@ WLAN Module (Wi-Fi Control): Similar to the bluetooth module. This module enable
 *** WORK IN PROGRESS ***
 
 # Third Milestone 💻🗜️
-## CUSTOM CLAWS AND CODE REFINEMENTS
+## CUSTOM CLAWS, CODE REFINEMENTS AND LED LIGHTS
 
 ### How the code works
 A crucial modification that had to be done before I could design my first modification, a set of two claws, was with the code. The actual code was rather complex, but the idea was relatively simple - after establishing definitions, declarations (Example: defining the capabilities of certain functions) and orders (Example: Turn right, left, activate sleep mode, etc.), the Arduino Uno controller would send one byte per second to the robot control board based on user inputs. Each byte contains 256 different numbers from a range of 1-255. Being attached and correlated directly with an order, these numbers were the way that the controller relays information to the control board in a wireless manner. 
@@ -186,11 +193,9 @@ With that, the software for my first modification was working.
 I split up the claw design into three main sections - a mount, two supporting arms, and two "scoopers". Below is an image of the final prints of each. NOTE: for the scoopers, I decided to use the pre-made acrylic leg parts, because I found that their design was ideal not only for walking, but for scooping up items as well. 
 The main idea was that the mount would be attached to the acrylic plate. Directly attached to the mount, the supporting arms would also be attached to a servo each, which would vertically move the scoopers. I had to split up the entire project into three parts, since the angular shapes and attention to detail would have been extremely difficult to reproduce on a 3-D printer if the parts were not printed individually.
 
-***** ADD IMAGE OF FINAL DESIGN *****
-
 MOUNT:
 This is the piece that holds both claws, and connects them to the robot's body. As a result, half of the mount is specially styled to fit into the gaps in the acrylic plate, while the other half has a slot-in slider where the supporting arms will slide into. This makes it easier for the printer to focus on printing the mount correctly. 
-To start, I took necessary measurements of the acrylic plate on which the mount would attach to. Then, I constructed and printed two iterations of the mount, as shown below:
+To start, I took necessary measurements of the acrylic plate on which the mount would attach to. I then found the exact CAD replica for the base plate from online searches. Then, I constructed and printed two iterations of the mount, as shown below:
 
 <img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
 
@@ -198,9 +203,285 @@ As depicted, I incorporated a clip-like structure to make the mount easy to take
 Creating an efficient clip was a struggle, and was why I needed multiple iterations. It's important to ensure that the clip is thin enough for it's structure to bend, but not so thin that it breaks off. I went with ~0.75mm.
 Furthermore, since this was a prototype, I made sure to create gaps in the design, removing filament where it was not needed in order to conserve it.
 
-*** WORK IN PROGRESS ***
+The next step was to create the claw arm. This step was relatively easy, and didn't involve many iterations due to a straightforward design. Depicted below is my final design:
+<img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
+
+After printing one claw mount and two claw arms, I centered my servos and hot-glued the entire design:
+<img src="https://i.postimg.cc/QxfbMRfB/mount-iterations.jpg" alt="My iPhone photo" width="400">
+
+Following this, I soldered all of my connections to the Adafruit PermaPro Pi Small-size Breadboard. This breadboard is perfect for this project due to it's small size, and power rails for ground and power. 
+
+Then, I used Fusion to CAD a top "shell" that wraps around the structure of the acrylic plate. To do this, I used the base plate CAD file, then created a design on around  it. This was also fairly straightforward, only requiring one iteration before the final design. 
+
+### Adding and Coding LED lights and the Ultrasonic Sensor
+After the claw was fully functional, the next step was to add LED lights to my project. This involved a lot of soldering, wire measurement and accurate placement of the lights. The main idea for the LED lights was to code different sequences for different states of being for the robot. For example, when "idle" (not moving at all), the robot would simply emit a blue light from underneath. When moving, however, the robot would pulse a blue light to indicate motion. When the claw is moving, the lights would flash yellow and blue, and when the robot is close to an object, it would flash red (this is where the ultrasonic sensor comes in). Adding the LED lights themselves was fairly straightforward, however the code was a bit challenging. 
+
+I added code to the servo driver (Arduino Nano), and soldered the connections to this board as well. Here are the new lines of code that I added:
+``` C++
+/* #include <Servo.h>
+#include <Wire.h> */
+#include <FastLED.h>
+
+CRGB leds [3]; //Array of three LED lights
+
+const int trigPin = 8; //location of the "trig" pin from the ultrasonic sensor
+const int echoPin = 7; //location of the "echo" pin fron the ultrasonic sensor
+
+/* Servo servoL{};
+Servo servoR{}; */
+
+//ULTRASONIC
+ int distance;
+
+//LEDS
+struct color
+{
+  byte red;
+  byte green;
+  byte blue;
+};
+
+color blink1;
+color blink2;
+color blink3;
+
+int pulseDirection1 = 3;
+int pulseDirection2 = 40;
+int brightness = 0; //This is for pulsing blue - this variable is assigned to the "blue" section of RGB,
+// and will change actively, altering the brightness
+
+int timer = 0;
+int TbetweenBlnk = 1;
+int currentColor = 2;
+
+//ORDERS - From robot controller to Nano
+/* static const byte orderOpen = 67;
+static const byte orderClose = 72;
+static const byte orderStop = 79;
+*/
+//Two new orders - help distinguish if the robot is moving or stationary (idle)
+static const byte orderMoving = 59;
+static const byte orderStation = 60;
+
+byte orderCheck = orderStop;
+bool moving = false;
+
+void cmd_ON();
+
+void setup()
+{
+/*  //SERVOS
+  servoL.attach(10);
+  servoR.attach(9);
+  servoL.write(100);//test
+  servoR.write(100);//test
+  Wire.begin(92);
+  Wire.onReceive(cmd_ON);
+  Serial.begin(9600);
+*/
+//LEDs
+  FastLED.addLeds<WS2812,12,GRB>(leds,3);
+  /*leds[0] = CRGB(0,0,100);//(0-255,0-255,0-255)
+  leds[1] = CRGB(0,0,100);//(0-255,0-255,0-255)
+  leds[2] = CRGB(0,0,100);//(0-255,0-255,0-255)
+  */
+
+  blink1.red = 255;
+  blink2.blue = 255;
+  blink1.green = 255;
+  blink2.green = 0;
+  blink1.blue = 0;
+  blink2.red = 0;
+
+  //ULTRASONIC SENSOR
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+};
+
+//ULTRASONIC
+long microsecondsToCentimeters(long microseconds) 
+{
+  // The speed of sound is 343 m/s or 0.034 cm/µs
+  return microseconds / 29 / 2;
+}
+
+void pulseBlue()
+{  //runs every 40 milliseconds
+  leds[0] = CRGB(0,0,brightness);
+  leds[1] = CRGB(0,0,brightness);
+  leds[2] = CRGB(0,0,brightness);
+
+//Increase or decrease the brightness
+  if(brightness > 254 && pulseDirection1 > 0)
+  {
+    pulseDirection1 = -pulseDirection1;
+  }
+  if(brightness < 1 && pulseDirection1 < 0)
+  {
+    pulseDirection1 = -pulseDirection1;
+  }
+  brightness = brightness + pulseDirection1;
+}
+
+void blue()
+{
+  leds[0] = CRGB(0,0,255);
+  leds[1] = CRGB(0,0,255);
+  leds[2] = CRGB(0,0,255);
+  
+}
+
+void yellowBlue()
+{
+  timer = timer + 1;
+  if(timer > TbetweenBlnk)
+  {
+    timer = 0;
+    if(currentColor == 1)
+    {
+      currentColor = 2;
+      leds[0] = CRGB(blink2.red,blink2.green,blink2.blue);
+      leds[1] = CRGB(blink2.red,blink2.green,blink2.blue);
+      leds[2] = CRGB(blink2.red,blink2.green,blink2.blue);
+    }
+    else
+    {
+      currentColor = 1;
+      leds[0] = CRGB(blink1.red,blink1.green,blink1.blue);
+      leds[1] = CRGB(blink1.red,blink1.green,blink1.blue);
+      leds[2] = CRGB(blink1.red,blink1.green,blink1.blue);
+    }
+    
+   
+  }
+}
+
+void blinkRed()
+{
+  leds[0] = CRGB(brightness,0,0);
+
+  if(brightness > 254 && pulseDirection2 > 0)
+  {
+    pulseDirection2 = -pulseDirection2;
+  }
+
+  if(brightness < 1 && pulseDirection2 )
+  {
+    pulseDirection2 = -pulseDirection2;
+  }
+
+  brightness = brightness + pulseDirection2;
+}
+
+void blinktask() //blinktask is the function which defines when to activate a specific sequence of lights.
+{
+  if(10*distance < 68) //distance from ultrasonic sensor, multiplied by 10 to convert from centimeters to millimeters.
+  {
+    blinkRed();
+  }
+  else if(orderCheck == orderOpen || orderCheck == orderClose)
+  {
+    redBlue();
+  }
+  else if(moving == true)
+  {
+    pulseBlue();
+  }
+  else if(moving == false)
+  {
+    blue();
+  }
+  FastLED.show();
+}
+
+void loop()
+{
+  // Clear the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  long duration = pulseIn(echoPin, HIGH);
+  // Calculating the distance
+  distance = microsecondsToCentimeters(duration);
+  // Prints the distance on the Serial Monitor
+  Serial.print("Distance: ");
+  Serial.print(10*distance);
+  Serial.println(" mm");
+  delay(40);
+
+  blinktask();
+  Serial.println(moving); //testing if moving detected, in the serial monitor
+
+ /* if(orderCheck == orderOpen)
+  {   
+    servoL.write(servoL.read() + 1);
+    servoR.write(servoR.read() - 1);
+  }
+
+  if(orderCheck == orderClose)
+  {
+    servoL.write(servoL.read() - 1);
+    servoR.write(servoR.read() + 1);
+  }
+*/
+  if(orderCheck == orderStop)
+  {
+    FastLED.show();
+   /* servoL.write(servoL.read()); //technically no need to write, but this keeps servo in same pos.
+    servoR.write(servoR.read()); //read prev. line
+  }
+
+  if(servoL.read() < 25)
+  {
+    servoL.write(servoL.read() + 1);
+  }
+
+  if(servoR.read() < 30)
+  {
+    servoR.write(servoR.read() + 1);
+  }
+};
+
+void cmd_ON() //runs only when recieved cmd from board (custom function name)
+{
+  byte command = Wire.read(); //wire.read tells which number robot board sends, set that equal to orderCheck so knows which order */
+  if(command == orderMoving)
+  {
+    moving = true;
+  }
+  else if(command == orderStation)
+  {
+    moving = false;
+  }
+  else
+  {
+    orderCheck = command;
+  }
+  Serial.println("Recieved Data");
+}
+
+```
+I also added two new orders (orderMoving and orderStation) to the MEGA's code in the Orders.h section (see above for how to add orders).
+
+### General Tweaks to Improve Stability
+When I constructed the base model for the robot, I noticed a few things about it - firstly, the robot legs continuously slipped while walking on slick floors, such as the table or the ground. To counteract this, I applied a few layers of hot glue to the tip of each leg, to cushion the legs, reduce servo burnout, raise the body slightly, reduce noise while walking, and improve grip. Furthermore, I ensured that all additional wires that I added did not go through the mess of wires associated with the 18 servos. This makes the robot have a clean look, while being organized with cable management. Lastly, I mounted the battery on the bottom, and used zip ties to make it more secure. 
 
 
+This concludes my modification milestone. To recap, I:
+1. Added claws
+2. Used CAD to design and 3-D print mounts and a shell for the claws
+3. Used a new board (Arduino Nano) for driving servos, LEDs, and ultrasonic sensor
+4. Modified the Hexapod and the Remote code
+5. Made my own code for the Arduino Nano
+6. Mounted and coded an Ultrasonic Sensor
+7. Added and coded LED lights
+8. Added hot glue to the tip of the legs
+9. Soldered all of my connections permanently to a board
 <!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
