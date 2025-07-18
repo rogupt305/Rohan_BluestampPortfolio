@@ -482,13 +482,6 @@ This concludes my modification milestone. To recap, I:
 7. Added and coded LED lights
 8. Added hot glue to the tip of the legs
 9. Soldered all of my connections permanently to a board
-<!--- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
--->
 
 
 # Second Milestone 🖥️
