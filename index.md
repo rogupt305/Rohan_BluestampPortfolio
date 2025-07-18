@@ -606,6 +606,21 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 NOTE: The two extra servos that I used for the claw were included in the kit. 
 
+# A Pinch of Salt
+While I’m proud of the outcome of my project, there are a few areas where I believe I could have improved or taken better advantage of the opportunities available.
+
+First, the claw design was not as efficient as I initially envisioned. I originally planned a horizontally-oriented claw, but the configuration required too much space and interfered with the robot’s front legs. As a result, I had to recalibrate the leg positions, which negatively affected the robot’s walking ability and  speed. Ultimately, I opted for a vertically-opening, scooping claw instead. While this design improved compatibility with the robot’s movement, it lacked the gripping ability of a horizontal mechanism and limited the claw’s functionality.
+
+Second, I realized that the project offered far more potential on the coding side than I fully explored. In total, I only wrote or modified approximately 850 lines of code, with most of my focus directed toward hardware. In hindsight, I could have invested more time in software enhancements. For example, the ultrasonic sensor was only used to trigger an LED, but it could be leveraged for far more sophisticated applications, such as object detection or navigation.
+
+Based on my experience, I would encourage others looking to modify this project to consider the following:
+
+1. Explore Autonomous Motion Through Code Enhancements
+The robot features a robust hardware and software foundation that lends itself well to autonomous movement. Its existing codebase can be easily adapted to incorporate sensors like the ultrasonic module, allowing for obstacle detection or semi-autonomous navigation. Thanks to the robot’s stable six-legged design, which offers balanced and reliable locomotion, there’s ample room to experiment without compromising movement quality.
+
+2. Prioritize Function Over Form in Claw Design
+If a claw is part of your modification plan, I recommend starting with a horizontally-closing mechanism mounted farther from the robot’s body. Although it may seem less visually appealing, this configuration offers superior gripping capability and overall performance. With that said - it is mostly up to you - if you prefer functionality over visuals.
+    
 <!--# Other Resources/Examples -->
 
 <!--One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
