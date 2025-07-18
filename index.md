@@ -2,7 +2,7 @@
 The Hexapod Robot is a six-legged creature similar in dexterity to that of an insect. Modeled after the unusual nature of a crab's design, this hexapod is capable of ambulation, rotation, physical interaction with it's environment, and expressive guestures, while simultaneously performing other varying functions. Controlled by an Arduino MEGA board, this creation is highly versatile, having the potential to be programmed and utilized by the user's free will.  
 In the following lines, I have provided an in-depth explanation on how each and every component of this robot was manufactured, designed, and coded. 
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
+| **Engineer** | **School** | **Project Type** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Rohan G | Leland High School | Mechanical Engineering | Incoming Sophomore
 
